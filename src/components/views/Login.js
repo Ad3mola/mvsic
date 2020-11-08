@@ -8,7 +8,7 @@ import LoginStyle from "../../styles/LoginStyle";
 function Login(props) {
   return (
     <LoginStyle>
-      <div className="container">
+      <div className="body container">
         <h1 className="text-center font-900">
           {" "}
           <span> mvsic</span> for everyone.

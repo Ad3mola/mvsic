@@ -4,10 +4,6 @@ const LoginStyle = styled.section`
   position: relative;
   background-color: #082946;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   background: linear-gradient(
       90deg,
       rgba(2, 0, 36, 0.7) 0%,
@@ -18,7 +14,13 @@ const LoginStyle = styled.section`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
+  .body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
   h1 {
     color: white;
     font-size: 6rem;
@@ -47,10 +49,13 @@ const LoginStyle = styled.section`
     }
   }
   @media (max-width: 576.98px) {
-    height: 80vh;
+    .body {
+      height: 95vh;
+    }
     h1 {
       font-size: 3rem;
     }
+
     .login-btn {
       height: 40px;
       min-width: 200px;
