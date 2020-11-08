@@ -1,0 +1,7 @@
+const devKeys =  {
+  token:
+    "BQA_piBqjC8Yj_7McQHv6d6lLNPLkTZmG5Rn0rMwHj7CTaXJhqbJK6OSh1v8-cc6XYLfb6DiRuf-Pyx9X4ZOBZ3Y0T1aW-YwjZTsJjPqvkGQq7nGjPGyB2c940yu1vGlq7mR7oO5wKtEuw0E_yTeZvPLuDJXng7ljMZHLDzbQmHVe1HSDqCjvzwCHGYWkxT6Q7hVbjPNxZ89gZOdLXQdCHjGr5til3qiHVzT5cJ_zAaaCiKCBwW0VD3o90fRUeG6dtUhF-zYEazRBkJK7KXtogOKgURTWNLS3ug",
+  clientID: "c61a54573c5b417fb98fc0a3b373bd75",
+};
+
+export default devKeys;

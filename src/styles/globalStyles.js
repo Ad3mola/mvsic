@@ -8,7 +8,7 @@ export default createGlobalStyle`
 }
     body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family:'Lato', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,6 +25,20 @@ select:focus {
   outline: none !important;
   box-shadow: none !important;
   border: 1px solid #333333 !important;
+}
+.center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.font-600{
+  font-weight:600;
+}
+.font-700{
+  font-weight:700;
+}
+.font-900{
+  font-weight:900;
 }
 
 
