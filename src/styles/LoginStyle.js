@@ -47,6 +47,7 @@ const LoginStyle = styled.section`
     }
   }
   @media (max-width: 576.98px) {
+    height: 80vh;
     h1 {
       font-size: 3rem;
     }
