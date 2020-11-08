@@ -21,6 +21,7 @@ const LoginStyle = styled.section`
 
   h1 {
     color: white;
+    font-size: 6rem;
     span {
       color: #58b63c;
     }
@@ -28,13 +29,14 @@ const LoginStyle = styled.section`
   .login-btn {
     background-color: #58b63c;
     border: 0;
-    height: 25px;
-    width: 100px;
-    border-radius: 20px;
-    font-size: 0.5rem;
+    height: 55px;
+    min-width: 250px;
+    border-radius: 30px;
+    font-size: 1.2rem;
     font-weight: 900;
     padding: 0.3em 0.5em;
     color: white;
+
     &:hover {
       opacity: 0.9;
     }
@@ -42,6 +44,17 @@ const LoginStyle = styled.section`
       border: 0;
       outline: none;
       box-shadow: none;
+    }
+  }
+  @media (max-width: 576.98px) {
+    h1 {
+      font-size: 3rem;
+    }
+    .login-btn {
+      height: 40px;
+      min-width: 200px;
+      border-radius: 20px;
+      font-size: 1rem;
     }
   }
 `;
