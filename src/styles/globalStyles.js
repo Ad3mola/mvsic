@@ -7,6 +7,7 @@ export default createGlobalStyle`
     box-sizing:border-box;
 }
     body {
+      height:100vh;
   font-family:'Lato', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -23,7 +24,7 @@ textarea:focus,
 select:focus {
   outline: none !important;
   box-shadow: none !important;
-  border: 1px solid #333333 !important;
+  border: 0;
 }
 .center{
   display:flex;

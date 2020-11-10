@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 
 const baseURL = "https://api.spotify.com/v1/";
 export const token = Cookies.get("spotifyAuthToken");
+console.log(token);
 
 // export const setCookies = (props) => {
 //   const retrieveToken = props.location.hash.replace(
