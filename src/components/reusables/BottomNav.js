@@ -3,11 +3,12 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import { Apps, LibraryMusic, Mic, Search } from "@material-ui/icons";
 
-export default function BottomNav({ classes }) {
-  const [value, setValue] = React.useState("recents");
+export default function BottomNav({ classes, history, match }) {
+  const [value, setValue] = React.useState(`${history.location.pathname}`);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    history.push(newValue);
   };
 
   return (
@@ -17,15 +18,30 @@ export default function BottomNav({ classes }) {
       className={classes}
       showLabels
     >
-      <BottomNavigationAction label="Browse" value="browse" icon={<Apps />} className="nav-elements" />
-      <BottomNavigationAction label="Radio" value="radio" icon={<Mic />} className="nav-elements" />
+      <BottomNavigationAction
+        label="Browse"
+        value={`${match.path}/browse`}
+        icon={<Apps />}
+        className="nav-elements"
+      />
+      <BottomNavigationAction
+        label="Radio"
+        value={`${match.path}/radio`}
+        icon={<Mic />}
+        className="nav-elements"
+      />
       <BottomNavigationAction
         label="Library"
-        value="library"
+        value={`${match.path}/`}
         icon={<LibraryMusic />}
         className="nav-elements"
       />
-      <BottomNavigationAction label="Search" value="search" icon={<Search />} className="nav-elements"/>
+      <BottomNavigationAction
+        label="Search"
+        value={`${match.path}/search`}
+        icon={<Search />}
+        className="nav-elements"
+      />
     </BottomNavigation>
   );
 }

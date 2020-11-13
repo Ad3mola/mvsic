@@ -4,8 +4,11 @@ import Cookies from "js-cookie";
 
 import keys from "../../HTTP/keys";
 import LoginStyle from "../../styles/LoginStyle";
+// import { token } from "../../HTTP/config";
+import { Redirect } from "react-router-dom";
 
 function Login(props) {
+  if (Cookies.get("spotifyAuthToken")) return <Redirect to="/home" />;
   return (
     <LoginStyle>
       <div className="body container">
@@ -14,7 +17,7 @@ function Login(props) {
           <span> mvsic</span> for everyone.
         </h1>
         <SpotifyAuth
-          redirectUri="http://localhost:3000/login"
+          redirectUri="http://localhost:3000/"
           clientID={keys.clientID}
           scopes={[Scopes.userReadPrivate, Scopes.userReadEmail]}
           noLogo={true}

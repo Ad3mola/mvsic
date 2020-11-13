@@ -1,55 +1,43 @@
-import {
-  LibraryMusic,
-  MicNone,
-  MusicNote,
-  QueueMusic,
-} from "@material-ui/icons";
-import { useLayoutEffect } from "react";
+import { Grid } from "@material-ui/core";
+import { lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { login } from "../../store/actions/authentication";
-import { useGlobalState } from "../../store/reducers/rootReducer";
-import HomepageStyle from "../../styles/HomeStyles";
+import BottomNav from "../reusables/BottomNav";
+import DesktopNav from "../reusables/DesktopNav";
+import PageHeader from "../reusables/PageHeader";
 
-function Home() {
+const Library = lazy(() => import("./Library"));
+const Search = lazy(() => import("./Search"));
+
+function Home({ match, history }) {
   const dispatch = useDispatch();
-  const { user } = useGlobalState();
-  useLayoutEffect(() => {
+  useEffect(() => {
     dispatch(login());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <HomepageStyle className="mt-5 mt-lg-2">
-      <h1 className="container font-weight-bold d-none d-lg-block header ">
-        Categories
-      </h1>
-      <h1 className="container font-weight-bold d-lg-none header">Library</h1>
-      <div className="library">
-        <ul className="d-lg-none library-list">
-          <li>
-            <Link to="/">
-              <QueueMusic fontSize="small" /> <span>Playlists</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <MicNone fontSize="small" /> <span>Artists</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <LibraryMusic fontSize="small" /> <span>Albums</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <MusicNote fontSize="small" /> <span>Songs</span>
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </HomepageStyle>
+    <>
+      <Grid container>
+        <Grid item xs={false} lg={2} className="d-none d-lg-block">
+          <DesktopNav />
+        </Grid>
+        <Grid item xs={12} lg={10} className="main-page">
+          <PageHeader />
+          <Switch>
+            <Route exact path={`${match.path}`} component={Library} />
+            <Route path={`${match.path}/search`} component={Search} />
+            <Redirect to="/home" />
+          </Switch>
+        </Grid>
+      </Grid>
+      <BottomNav
+        history={history}
+        match={match}
+        classes="d-lg-none fixed-bottom bottom-navigation"
+      />
+    </>
   );
 }
 
