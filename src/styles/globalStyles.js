@@ -26,6 +26,10 @@ select:focus {
   box-shadow: none !important;
   border: 0;
 }
+.main-page{
+
+  background-color:rgba(229, 229, 229, 0.2);
+}
 .center{
   display:flex;
   justify-content:center;
@@ -41,6 +45,15 @@ select:focus {
   font-weight:900;
 }
 
-
+.bottom-navigation{
+  background-color: #f5f5f5 !important;
+}
+.nav-elements{
+  &:focus{
+    border:0;
+    outline:none;
+    box-shadow: 0;
+  }
+}
 
 `;

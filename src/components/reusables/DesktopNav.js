@@ -14,7 +14,7 @@ import {
 import { Button, Grid } from "@material-ui/core";
 
 const NavStyle = styled.div`
-  background-color: rgba(229, 229, 229, 0.3);
+  background-color: #f5f5f5;
   height: 100vh;
   padding: 2em 0em;
   font-size: 0.65rem;
@@ -66,6 +66,8 @@ const NavStyle = styled.div`
     font-size: 0.7rem;
     &:focus {
       border-color: #58b63c;
+      outline: 0;
+      box-shadow: 0;
     }
   }
   .btn-container,

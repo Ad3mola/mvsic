@@ -1,54 +1,20 @@
-import { Grid, TextField } from "@material-ui/core";
-import { Search, SearchOutlined } from "@material-ui/icons";
-import React from "react";
-import styled from "styled-components";
+import { Grid } from "@material-ui/core";
 
-const HeaderStyles = styled.div`
-  .search-input {
-    border: 0;
-    &::placeholder {
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-  }
-  .form-group {
-    position: relative;
-
-    .search-icon {
-      position: absolute;
-      top: 6px;
-      left: 0;
-      svg {
-        color: #495057;
-      }
-    }
-  }
-`;
+import Search from "./Search";
+import UserCard from "./UserCard";
 
 function PageHeader() {
   return (
-    <HeaderStyles className="mt-4">
-      <Grid container justify="space-around">
+    <div className="mt-4 d-none d-lg-block">
+      <Grid container justify="space-around" alignItems="center">
         <Grid item xs={false} md={6}>
-          <form>
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-control pl-4 search-input"
-                aria-describedby="searchHelp"
-                placeholder="Search for songs, artists etc..."
-              />
-              <div className="search-icon">
-                <SearchOutlined fontSize="small" />
-              </div>
-            </div>
-          </form>
+          <Search />
         </Grid>
-        <Grid item xs={false} md={3}>
-          profile
+        <Grid item xs={false} md={4}>
+          <UserCard />
         </Grid>
       </Grid>
-    </HeaderStyles>
+    </div>
   );
 }
 
