@@ -5,7 +5,7 @@ import UserCard from "./UserCard";
 
 function PageHeader() {
   return (
-    <div className="mt-4 d-none d-lg-block">
+    <div className="mt-4 d-none d-xl-block">
       <Grid container justify="space-around" alignItems="center">
         <Grid item xs={false} md={6}>
           <Search />

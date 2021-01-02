@@ -12,9 +12,10 @@ import {
   AddCircleOutline,
 } from "@material-ui/icons";
 import { Button, Grid } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 
 const NavStyle = styled.div`
-  background-color: #f5f5f5;
+  background-color: rgba(255, 255, 255, 0.8);
   height: 100vh;
   padding: 2em 0em;
   font-size: 0.65rem;
@@ -23,6 +24,9 @@ const NavStyle = styled.div`
   color: #808487;
   letter-spacing: 0.05em;
   overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 17%;
   &::-webkit-scrollbar {
     width: 0.2em;
   }
@@ -83,41 +87,41 @@ function DesktopNav() {
       <Grid container direction="column" justify="center" className="h-100">
         <div className="mt-3 link-category">
           <div className="main-category">
-            <a href="/" className="link active">
+            <NavLink exact to="/home" className="link">
               <Home fontSize="small" />
               <span className="ml-4">home</span>
-            </a>
-            <a href="/" className="link">
+            </NavLink>
+            <NavLink to="/home/browse" className="link">
               <Search fontSize="small" />
               <span className="ml-4">browse</span>
-            </a>
-            <a href="/" className="link">
+            </NavLink>
+            <NavLink to="/home/radio" className="link">
               <Mic fontSize="small" />
               <span className="ml-4">radio</span>
-            </a>
+            </NavLink>
           </div>
           <div className="mt-5">
             <p>your library</p>
-            <a href="/" className="link">
+            <NavLink to="/home/recent" className="link">
               <QueryBuilder fontSize="small" />
               <span className="ml-4">recently played</span>
-            </a>
-            <a href="/" className="link">
+            </NavLink>
+            <NavLink to="/home/favorite" className="link">
               <FavoriteBorder fontSize="small" />
               <span className="ml-4">favorite songs</span>
-            </a>
-            <a href="/" className="link">
+            </NavLink>
+            <NavLink to="/home/artists" className="link">
               <PersonOutline fontSize="small" />
               <span className="ml-4">artists</span>
-            </a>
-            <a href="/" className="link">
+            </NavLink>
+            <NavLink to="/home/albums" className="link">
               <Album fontSize="small" />
               <span className="ml-4">albums</span>
-            </a>
+            </NavLink>
           </div>
           <div className=" mt-5">
             <p>playlists</p>
-            {/* <a href="/" className="link">
+            {/* <a to="/" className="link">
               <span className="ml-4">All Orders</span>
             </a>
             <a href="/" className="link">

@@ -19,6 +19,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px white;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(88, 182, 60);
+  outline: 1px solid rgb(88, 182, 60);
+}
 input:focus,
 textarea:focus,
 select:focus {
@@ -26,8 +38,11 @@ select:focus {
   box-shadow: none !important;
   border: 0;
 }
+.header {
+    font-weight: 900;
+  }
 .main-page{
-
+  width: 100%;
   background-color:rgba(229, 229, 229, 0.2);
 }
 .center{
@@ -55,5 +70,10 @@ select:focus {
     box-shadow: 0;
   }
 }
+@media (max-width: 768.98px) {
+    .header {
+      font-size: 1.5rem;
+    }
+  }
 
 `;

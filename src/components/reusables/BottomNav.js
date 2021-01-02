@@ -32,7 +32,7 @@ export default function BottomNav({ classes, history, match }) {
       />
       <BottomNavigationAction
         label="Library"
-        value={`${match.path}/`}
+        value={`${match.path}`}
         icon={<LibraryMusic />}
         className="nav-elements"
       />

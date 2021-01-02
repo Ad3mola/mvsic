@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 const HomepageStyle = styled.div`
-  .header {
-    font-size: 3.5rem;
-    font-weight: 900;
-  }
+ 
   .library-list {
     li {
       padding: 1em 1em;
@@ -28,11 +25,7 @@ const HomepageStyle = styled.div`
       }
     }
   }
-  @media (max-width: 768.98px) {
-    .header {
-      font-size: 2rem;
-    }
-  }
+ 
 `;
 
 export default HomepageStyle;

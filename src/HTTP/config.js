@@ -46,7 +46,7 @@ http.interceptors.response.use(
       //     window.location = '/login';
       // });
       Cookies.remove("spotifyAuthToken");
-      window.location = "/login";
+      window.location = "/";
     } else {
       return Promise.reject(error);
     }

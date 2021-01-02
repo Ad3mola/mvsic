@@ -9,6 +9,7 @@ import PageHeader from "../reusables/PageHeader";
 
 const Library = lazy(() => import("./Library"));
 const Search = lazy(() => import("./Search"));
+const Browse = lazy(() => import("./Browse"));
 
 function Home({ match, history }) {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function Home({ match, history }) {
   return (
     <>
       <Grid container>
-        <Grid item xs={false} lg={2} className="d-none d-lg-block">
+        <Grid item xs={false} lg={2} className="d-none d-xl-block">
           <DesktopNav />
         </Grid>
         <Grid item xs={12} lg={10} className="main-page">
@@ -28,6 +29,7 @@ function Home({ match, history }) {
           <Switch>
             <Route exact path={`${match.path}`} component={Library} />
             <Route path={`${match.path}/search`} component={Search} />
+            <Route path={`${match.path}/browse`} component={Browse} />
             <Redirect to="/home" />
           </Switch>
         </Grid>
@@ -35,7 +37,7 @@ function Home({ match, history }) {
       <BottomNav
         history={history}
         match={match}
-        classes="d-lg-none fixed-bottom bottom-navigation"
+        classes="d-xl-none fixed-bottom bottom-navigation"
       />
     </>
   );
