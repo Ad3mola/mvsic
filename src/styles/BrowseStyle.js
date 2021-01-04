@@ -18,4 +18,5 @@ export default styled.div`
     color: lightgray;
     border: 1px solid lightgray;
   }
+
 `;

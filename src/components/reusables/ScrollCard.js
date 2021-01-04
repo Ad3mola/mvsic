@@ -2,7 +2,6 @@ import React from "react";
 import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
-import ContainerCard from "./ContainerCard";
 import styled from "styled-components";
 import CardItem from "./CardItem";
 
@@ -46,7 +45,7 @@ const ScrollCardStyle = styled.div`
 
 function ScrollCard() {
   return (
-    <ContainerCard>
+    <>
       <ScrollCardStyle>
         <Swiper
           spaceBetween={5}
@@ -89,7 +88,7 @@ function ScrollCard() {
           </SwiperSlide>
         </Swiper>
       </ScrollCardStyle>
-    </ContainerCard>
+    </>
   );
 }
 

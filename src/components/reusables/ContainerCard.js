@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) =>
         backgroundColor: "white",
         padding: "1.2em",
         borderRadius: "25px",
+        boxShadow: "0 0.2px 1.9px rgba(0, 0, 0, 0.1)",
       },
     },
   })
