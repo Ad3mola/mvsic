@@ -8,11 +8,12 @@ export default createGlobalStyle`
 }
     body {
       height:100vh;
-  font-family:'Lato', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family:'Poppins', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color:#f5f5f5;
 }
 
 code {
@@ -38,12 +39,17 @@ select:focus {
   box-shadow: none !important;
   border: 0;
 }
+.font-weight-bold{
+  font-weight: 600 !important;
+}
 .header {
     font-weight: 900;
   }
 .main-page{
   width: 100%;
+  min-height:100vh;
   background-color:rgba(229, 229, 229, 0.2);
+  overflow-x:hidden;
 }
 .center{
   display:flex;

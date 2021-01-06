@@ -21,31 +21,31 @@ export const CategoriesList = () => {
     <>
       <CategoriesListStyle container className="mt-3 mx-auto">
         <Grid item xs={6} md={3} lg={2}>
-          <CardItem classname="card-img-container" />
+          <CardItem classnames="card-img-container" />
         </Grid>
         <Grid item xs={6} md={3} lg={2}>
-          <CardItem classname="card-img-container" />
+          <CardItem classnames="card-img-container" />
         </Grid>
         <Grid item xs={6} md={3} lg={2}>
-          <CardItem classname="card-img-container" />
+          <CardItem classnames="card-img-container" />
         </Grid>
         <Grid item xs={6} md={3} lg={2}>
-          <CardItem classname="card-img-container" />
+          <CardItem classnames="card-img-container" />
         </Grid>
         <Grid item xs={6} md={3} lg={2}>
-          <CardItem classname="card-img-container" />
+          <CardItem classnames="card-img-container" />
         </Grid>
         <Grid item xs={6} md={3} lg={2}>
-          <CardItem classname="card-img-container" />
+          <CardItem classnames="card-img-container" />
         </Grid>
         <Grid item xs={6} md={3} lg={2}>
-          <CardItem classname="card-img-container" />
+          <CardItem classnames="card-img-container" />
         </Grid>
         <Grid item xs={6} md={3} lg={2}>
-          <CardItem classname="card-img-container" />
+          <CardItem classnames="card-img-container" />
         </Grid>
         <Grid item xs={6} md={3} lg={2}>
-          <CardItem classname="card-img-container" />
+          <CardItem classnames="card-img-container" />
         </Grid>
       </CategoriesListStyle>
       <a

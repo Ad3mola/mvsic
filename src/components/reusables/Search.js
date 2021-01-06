@@ -6,7 +6,7 @@ const SearchStyle = styled.form`
   .search-input {
     border: 0;
     &::placeholder {
-      font-weight: 700;
+      font-weight: 600;
       font-size: 0.9rem;
     }
   }

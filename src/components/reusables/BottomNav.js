@@ -2,8 +2,20 @@ import React from "react";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import { Apps, LibraryMusic, Mic, Search } from "@material-ui/icons";
+import { withStyles } from "@material-ui/core/styles";
 
-export default function BottomNav({ classes, history, match }) {
+const Style = withStyles({
+  root: {
+    justifyContent: "space-between",
+    boxShadow: "0 7px 20px rgba(0, 0, 0, 0.16)",
+  },
+  "@global": {
+    ".MuiBottomNavigationAction-root.Mui-selected ": {
+      color: "rgb(88, 182, 60)",
+    },
+  },
+})(BottomNavigation);
+export default function BottomNav({ classnames, history, match }) {
   const [value, setValue] = React.useState(`${history.location.pathname}`);
 
   const handleChange = (event, newValue) => {
@@ -12,10 +24,10 @@ export default function BottomNav({ classes, history, match }) {
   };
 
   return (
-    <BottomNavigation
+    <Style
       value={value}
       onChange={handleChange}
-      className={classes}
+      className={`${classnames} `}
       showLabels
     >
       <BottomNavigationAction
@@ -42,6 +54,6 @@ export default function BottomNav({ classes, history, match }) {
         icon={<Search />}
         className="nav-elements"
       />
-    </BottomNavigation>
+    </Style>
   );
 }

@@ -10,6 +10,7 @@ import PageHeader from "../reusables/PageHeader";
 const Library = lazy(() => import("./Library"));
 const Search = lazy(() => import("./Search"));
 const Browse = lazy(() => import("./Browse"));
+const Radio = lazy(() => import("./Radio"));
 
 function Home({ match, history }) {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function Home({ match, history }) {
             <Route exact path={`${match.path}`} component={Library} />
             <Route path={`${match.path}/search`} component={Search} />
             <Route path={`${match.path}/browse`} component={Browse} />
+            <Route path={`${match.path}/radio`} component={Radio} />
             <Redirect to="/home" />
           </Switch>
         </Grid>
@@ -37,7 +39,7 @@ function Home({ match, history }) {
       <BottomNav
         history={history}
         match={match}
-        classes="d-xl-none fixed-bottom bottom-navigation"
+        classnames="d-xl-none fixed-bottom bottom-navigation"
       />
     </>
   );

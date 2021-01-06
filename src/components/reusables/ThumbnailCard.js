@@ -33,28 +33,28 @@ function ThumbnailCard() {
   return (
     <GridContainer container spacing={2} className="px-2 pt-3">
       <Grid item xs={4} md={2} lg={3}>
-        <CardItem classname="card-item-container" />
+        <CardItem classnames="card-item-container" />
       </Grid>
       <Grid item xs={4} md={2} lg={3}>
-        <CardItem classname="card-item-container" />
+        <CardItem classnames="card-item-container" />
       </Grid>
       <Grid item xs={4} md={2} lg={3}>
-        <CardItem classname="card-item-container" />
+        <CardItem classnames="card-item-container" />
       </Grid>
       <Grid item xs={4} md={2} lg={3}>
-        <CardItem classname="card-item-container" />
+        <CardItem classnames="card-item-container" />
       </Grid>
       <Grid item xs={4} md={2} lg={3}>
-        <CardItem classname="card-item-container" />
+        <CardItem classnames="card-item-container" />
       </Grid>
       <Grid item xs={4} md={2} lg={3}>
-        <CardItem classname="card-item-container" />
+        <CardItem classnames="card-item-container" />
       </Grid>
       <Grid item xs={4} md={2} lg={3}>
-        <CardItem classname="card-item-container" />
+        <CardItem classnames="card-item-container" />
       </Grid>
       <Grid item xs={4} md={2} lg={3}>
-        <CardItem classname="card-item-container" />
+        <CardItem classnames="card-item-container" />
       </Grid>
     </GridContainer>
   );

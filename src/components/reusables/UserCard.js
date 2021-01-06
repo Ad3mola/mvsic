@@ -20,7 +20,7 @@ const UserCardStyle = styled(Card)`
   }
   .card-text-container {
     h6 {
-      font-weight: bold;
+      font-weight: 600;
     }
   }
   small {
@@ -28,7 +28,7 @@ const UserCardStyle = styled(Card)`
     font-weight: bold;
   }
   span {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 0.9rem;
   }
   .icon:focus {

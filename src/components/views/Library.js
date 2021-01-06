@@ -13,6 +13,7 @@ import { useGlobalState } from "../../store/reducers/rootReducer";
 import HomepageStyle from "../../styles/HomeStyles";
 import CategoriesList from "../reusables/CategoriesList";
 import ContainerCard from "../reusables/ContainerCard";
+import SwipeCard from "../reusables/SwipeCard";
 
 function Library() {
   const { user } = useGlobalState();
@@ -44,6 +45,7 @@ function Library() {
           </li>
         </ul>
       </div>
+      <SwipeCard classnames="d-none d-xl-block" />
       <ContainerCard className="container category">
         <h1 className=" font-weight-bold header pl-2 pl-xl-0">Categories</h1>
         <CategoriesList />
