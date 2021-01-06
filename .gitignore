@@ -9,7 +9,7 @@
 /coverage
 
 # keys
-devKeys.js
+/src/HTTP/devKeys.js
 
 # production
 /build
