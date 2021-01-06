@@ -13,7 +13,6 @@ export default createGlobalStyle`
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color:#f5f5f5;
 }
 
 code {
@@ -50,6 +49,7 @@ select:focus {
   min-height:100vh;
   background-color:rgba(229, 229, 229, 0.2);
   overflow-x:hidden;
+  position:relative;
 }
 .center{
   display:flex;

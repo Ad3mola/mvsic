@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 const HomepageStyle = styled.div`
- 
   .library-list {
     li {
       padding: 1em 1em;
-      border-top: 1px solid black;
+      border-top: 1px solid #777;
       a {
         color: black;
         display: inline-block;
@@ -21,11 +20,10 @@ const HomepageStyle = styled.div`
         font-weight: 600;
       }
       &:last-child {
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #777;
       }
     }
   }
- 
 `;
 
 export default HomepageStyle;
