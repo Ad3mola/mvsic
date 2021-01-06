@@ -4,7 +4,6 @@ import {
   MusicNote,
   QueueMusic,
 } from "@material-ui/icons";
-import { useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
