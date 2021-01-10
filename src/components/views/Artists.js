@@ -1,12 +1,8 @@
-import { Grid } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getArtists } from "../../store/actions/songs";
 import { useGlobalState } from "../../store/reducers/rootReducer";
-import ContainerCard from "../reusables/ContainerCard";
-import NavCard from "../reusables/NavCard";
 import SwipeCard from "../reusables/SwipeCard";
-import ThumbnailCard from "../reusables/ThumbnailCard";
 
 function Artists() {
   const { artists } = useGlobalState();

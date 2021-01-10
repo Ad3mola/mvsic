@@ -1,6 +1,6 @@
-import { Card, Grid, IconButton } from "@material-ui/core";
-import { MoreVert } from "@material-ui/icons";
+import { Card, Grid } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
+import { signOut } from "../../store/actions/authentication";
 import React from "react";
 import styled from "styled-components";
 import LongMenu from "./LongMenu";
@@ -87,7 +87,11 @@ function UserCard({ data, playlistTotal }) {
             </Grid>
           </Grid>
           <Grid item xs={false} md={2}>
-            <LongMenu options={["Sign Out"]} iconButtonClass="icon" />
+            <LongMenu
+              options={["Sign Out"]}
+              iconButtonClass="icon"
+              onClick={() => signOut()}
+            />
           </Grid>
         </Grid>
       )}

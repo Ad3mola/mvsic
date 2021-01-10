@@ -1,4 +1,5 @@
 import http from "../../HTTP/config";
+import Cookies from "js-cookie";
 import { getNewReleases, getUserPlaylists } from "./songs";
 
 export const login = () => {
@@ -14,6 +15,11 @@ export const login = () => {
       }
     );
   };
+};
+
+export const signOut = () => {
+  Cookies.remove("spotifyAuthToken");
+  window.location = "/";
 };
 
 const getUser = async () => {

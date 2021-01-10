@@ -1,9 +1,6 @@
-import { Grid } from "@material-ui/core";
 import React from "react";
 import { useGlobalState } from "../../store/reducers/rootReducer";
-import ContainerCard from "../reusables/ContainerCard";
 import NavCard from "../reusables/NavCard";
-import ThumbnailCard from "../reusables/ThumbnailCard";
 
 function Favorite() {
   const { topTracks } = useGlobalState();
