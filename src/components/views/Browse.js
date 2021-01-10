@@ -7,9 +7,15 @@ import NavCard from "../reusables/NavCard";
 import { useGlobalState } from "../../store/reducers/rootReducer";
 import { useDispatch } from "react-redux";
 import { getBrowse } from "../../store/actions/songs";
+import SwipeCard from "../reusables/SwipeCard";
 
 function Browse() {
-  const { topSongs, categories, featuredPlaylists } = useGlobalState();
+  const {
+    topSongs,
+    categories,
+    featuredPlaylists,
+    newReleases,
+  } = useGlobalState();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,6 +24,7 @@ function Browse() {
 
   return (
     <BrowseStyle className="my-5 pb-5 px-0 px-xl-5 mt-xl-2 overflow-hidden container">
+      <SwipeCard title="New Releases" data={newReleases} />
       <NavCard title="Top Tracks" data={topSongs} />
       <Grid container spacing={3}>
         <Grid item xs={12} lg={6}>
