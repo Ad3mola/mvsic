@@ -46,37 +46,51 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-function UserCard() {
+function UserCard({ data, playlistTotal }) {
   const classes = useStyles();
   return (
     <UserCardStyle
       className={classes.root + " user-card"}
       style={{ borderRadius: "10px" }}
     >
-      <Grid container justify="space-between">
-        <Grid item xs={false} md={2}>
-          <div className="image-container">
-            <img
-              src="https://res.cloudinary.com/ademolamadelewi/image/upload/c_scale,f_auto,h_436,q_auto/v1604793240/homepage_rj0lcp.jpg"
-              alt="userImage"
-            />
-          </div>
-        </Grid>
-        <Grid container item xs={false} md={7} className="card-text-container">
-          <Grid xs={false} md={12}>
-            <h6>Ademola</h6>
+      {data && (
+        <Grid container justify="space-between">
+          <Grid item xs={false} md={2}>
+            <div className="image-container">
+              <img
+                src={
+                  data.images.length
+                    ? data.images[0]
+                    : "https://res.cloudinary.com/ademolamadelewi/image/upload/c_scale,f_auto,h_436,q_auto/v1604793240/homepage_rj0lcp.jpg"
+                }
+                alt="userImage"
+              />
+            </div>
           </Grid>
-          <Grid item xs={false} md={6}>
-            <span>0</span> <small className="text-muted">Playlists</small>
+          <Grid
+            container
+            item
+            xs={false}
+            md={7}
+            className="card-text-container"
+          >
+            <Grid xs={false} md={12}>
+              <h6>{data.display_name}</h6>
+            </Grid>
+            <Grid item xs={false} md={6}>
+              <span>{playlistTotal}</span>{" "}
+              <small className="text-muted">Playlists</small>
+            </Grid>
+            <Grid item xs={false} md={6}>
+              <span>{data.followers.total}</span>{" "}
+              <small className="text-muted">Followers</small>
+            </Grid>
           </Grid>
-          <Grid item xs={false} md={6}>
-            <span>0</span> <small className="text-muted">Followers</small>
+          <Grid item xs={false} md={2}>
+            <LongMenu options={["Sign Out"]} iconButtonClass="icon" />
           </Grid>
         </Grid>
-        <Grid item xs={false} md={2}>
-          <LongMenu options={["Sign Out"]} iconButtonClass="icon" />
-        </Grid>
-      </Grid>
+      )}
     </UserCardStyle>
   );
 }

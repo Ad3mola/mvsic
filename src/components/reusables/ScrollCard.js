@@ -19,33 +19,51 @@ const ScrollCardStyle = styled.div`
   width: 100%;
 `;
 
-function ScrollCard({ styles, componentClass, ...props }) {
+function ScrollCard({ styles, componentClass, data, type, ...props }) {
   return (
     <>
       <ScrollCardStyle>
-        <Swiper {...props} mousewheel={true}>
-          <SwiperSlide style={styles}>
-            <CardItem classnames={componentClass} />
-          </SwiperSlide>
-          <SwiperSlide style={styles}>
-            <CardItem classnames={componentClass} />
-          </SwiperSlide>
-          <SwiperSlide style={styles}>
-            <CardItem classnames={componentClass} />
-          </SwiperSlide>
-          <SwiperSlide style={styles}>
-            <CardItem classnames={componentClass} />
-          </SwiperSlide>
-          <SwiperSlide style={styles}>
-            <CardItem classnames={componentClass} />
-          </SwiperSlide>
-          <SwiperSlide style={styles}>
-            <CardItem classnames={componentClass} />
-          </SwiperSlide>
-          <SwiperSlide style={styles}>
-            <CardItem classnames={componentClass} />
-          </SwiperSlide>
-        </Swiper>
+        {data.length ? (
+          <Swiper {...props} mousewheel={true}>
+            {data.map((album) => (
+              <SwiperSlide
+                key={album.id ? album.id : album.track.album.id}
+                style={{
+                  background: `linear-gradient(  90deg,
+                    rgba(2, 0, 36, 0.4) 0%,
+                    rgba(35, 92, 63, 0.3) 100%,
+                    rgba(0, 212, 255, 0.3) 100%),url(
+                  ${
+                    album.images
+                      ? album.images[1].url
+                      : album.track.album.images[1].url
+                  }
+                )`,
+                }}
+              >
+                <CardItem
+                  classnames={componentClass}
+                  link={album.id ? album.id : album.track.album.id}
+                  title={album.name ? album.name : album.track.album.name}
+                  smallText={
+                    album.artists
+                      ? album.artists[0].name
+                      : album.track
+                      ? album.track.album.artists[0].name
+                      : album.publisher
+                  }
+                  img={
+                    album.images
+                      ? album.images[1].url
+                      : album.track.album.images[1].url
+                  }
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <p className="container-fluid">Currently Empty</p>
+        )}
       </ScrollCardStyle>
       <div className="pag"></div>
     </>

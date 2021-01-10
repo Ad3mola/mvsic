@@ -3,12 +3,13 @@ import { Switch, Route } from "react-router-dom";
 import Login from "./components/views/Login";
 import ProtectedRoute from "./components/reusables/ProtectedRoute";
 import NotFound from "./components/views/NotFound";
+import Loader from "./components/reusables/Loader";
 
 const Home = lazy(() => import("./components/views/Home"));
 
 function App() {
   return (
-    <Suspense fallback="Loading...">
+    <Suspense fallback={<Loader />}>
       <Switch>
         <Route exact path="/" component={Login} />
         <ProtectedRoute path="/home" component={Home} />

@@ -19,7 +19,13 @@ function Login(props) {
         <SpotifyAuth
           redirectUri="http://localhost:3000/"
           clientID={keys.clientID}
-          scopes={[Scopes.userReadPrivate, Scopes.userReadEmail]}
+          scopes={[
+            Scopes.userReadPrivate,
+            Scopes.userReadEmail,
+            Scopes.userLibraryRead,
+            Scopes.userTopRead,
+            Scopes.userReadRecentlyPlayed,
+          ]}
           noLogo={true}
           title={<span>Login with spotify </span>}
           btnClassName="center mx-auto mt-4 login-btn"

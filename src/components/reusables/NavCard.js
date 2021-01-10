@@ -24,6 +24,7 @@ const CardStyle = styled.div`
 
   .card-img-container {
     margin: 0.9em 0.5em;
+
     &:hover {
       text-decoration: none;
     }
@@ -37,13 +38,16 @@ const CardStyle = styled.div`
   }
   @media (max-width: 576px) {
     .swiper-slide {
-      width: 150px !important;
-      height: 170px !important;
+      width: 140px !important;
+      min-height: 170px !important;
+      .text h6 {
+        font-size: 0.7rem;
+      }
     }
   }
 `;
 
-function NavCard({ title }) {
+function NavCard({ title,publisher, data }) {
   return (
     <CardStyle>
       <ContainerCard>
@@ -57,8 +61,10 @@ function NavCard({ title }) {
           </div>
         </div>
         <ScrollCard
+          data={data}
           componentClass="card-img-container"
           spaceBetween={5}
+          type={publisher}
           slidesPerView={2}
           direction="horizontal"
           breakpoints={{

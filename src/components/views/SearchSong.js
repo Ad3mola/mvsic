@@ -1,29 +1,15 @@
-import React, { useState } from "react";
-import { SearchOutlined } from "@material-ui/icons";
+import React from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { getSearch } from "../../store/actions/songs";
 import { useGlobalState } from "../../store/reducers/rootReducer";
-import useComponentVisible from "./useComponentVisible";
-import CardItem from "./CardItem";
 
-const SearchStyle = styled.form`
-  position: relative;
+import Search from "../reusables/Search";
+
+const SearchStyles = styled.div`
+  margin-top: 4em;
   .search-input {
-    border: 0;
-    background-color: rgba(229, 229, 229, 0.2) !important;
-    padding-left: 2.6em !important;
-    &::placeholder {
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
+    background-color: rgba(229, 229, 229, 0.6) !important;
   }
   .search-body {
-    position: absolute;
-    top: 40px;
-    z-index: 1000;
-    width: 100%;
-    height: 100%;
     margin-top: 1.2em;
     .img-container {
       width: 80px;
@@ -31,64 +17,18 @@ const SearchStyle = styled.form`
         border-radius: 10px;
       }
     }
-    .card {
-      padding: 1em;
-    }
-  }
-  .form-group {
-    position: relative;
-    input {
-      border-radius: 40px;
-      background: transparent;
-    }
-    .search-icon {
-      position: absolute;
-      top: 6px;
-      left: 8px;
-      svg {
-        color: #495057;
-      }
-    }
   }
 `;
 
-function Search() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const {
-    ref,
-    isComponentVisible,
-    setIsComponentVisible,
-  } = useComponentVisible(true);
+function SearchSong() {
   const { searchList } = useGlobalState();
-  const dispatch = useDispatch();
-  const search = (e) => {
-    e.preventDefault();
-    if (searchQuery !== "") {
-      dispatch(getSearch(searchQuery));
-      setIsComponentVisible(true);
-    }
-  };
-
   return (
-    <SearchStyle onSubmit={search}>
-      <div className="form-group">
-        <input
-          type="text"
-          className="form-control pl-4 search-input"
-          aria-describedby="searchHelp"
-          onChange={(e) => {
-            setSearchQuery(e.target.value);
-          }}
-          placeholder="Search for songs, artists etc..."
-          value={searchQuery}
-        />
-        <div className="search-icon">
-          <SearchOutlined fontSize="small" />
-        </div>
-      </div>
-      {searchList && isComponentVisible && (
-        <div className="d-none d-xl-block search-body" ref={ref}>
-          <div className="card">
+    <SearchStyles className=" pb-5 px-xl-5 mt-xl-2 d-xl-none overflow-hidden container">
+      <Search />
+
+      <div className="my-5 search-body">
+        {searchList ? (
+          <div className="">
             <div className="artists">
               {searchList.artists.items.length ? (
                 <>
@@ -98,14 +38,14 @@ function Search() {
                       key={item.id}
                       className="my-3 d-flex align-items-center"
                     >
-                      <div className="mr-4 img-container">
+                      <div className="mr-4 w-25 img-container">
                         <img
                           src={item.images.length && item.images[1].url}
                           alt="detailImage"
                           className="w-100"
                         />
                       </div>
-                      <div className="detail-text">
+                      <div className="w-75 detail-text">
                         <p className="m-0 font-weight-bold main-text">
                           {item.name}
                         </p>
@@ -124,7 +64,7 @@ function Search() {
                       key={item.id}
                       className="my-3 d-flex align-items-center"
                     >
-                      <div className="mr-4 img-container">
+                      <div className="w-25 mr-4 img-container">
                         <img
                           src={
                             item.album.images.length && item.album.images[1].url
@@ -133,7 +73,7 @@ function Search() {
                           className="w-100"
                         />
                       </div>
-                      <div className="detail-text">
+                      <div className="w-75 detail-text">
                         <p className="m-0 font-weight-bold main-text">
                           {item.name}
                         </p>
@@ -147,10 +87,10 @@ function Search() {
               ) : null}
             </div>
           </div>
-        </div>
-      )}
-    </SearchStyle>
+        ) : null}
+      </div>
+    </SearchStyles>
   );
 }
 
-export default Search;
+export default SearchSong;

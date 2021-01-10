@@ -47,7 +47,7 @@ select:focus {
 .main-page{
   width: 100%;
   min-height:100vh;
-  background-color:rgba(229, 229, 229, 0.2);
+  background-color:#f5f5f5;
   overflow-x:hidden;
   position:relative;
 }
@@ -78,7 +78,7 @@ select:focus {
 }
 @media (max-width: 768.98px) {
     .header {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
 

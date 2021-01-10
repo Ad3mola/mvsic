@@ -25,6 +25,22 @@ const SwipeStyles = styled.section`
       font-size: 100%;
     }
   }
+  .text {
+    visibility: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .swiper-slide {
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
   .card-container {
     background-color: none;
     text-decoration: none;
@@ -40,18 +56,13 @@ const SwipeStyles = styled.section`
   }
 `;
 
-function SwipeCard({ classnames }) {
+function SwipeCard({ classnames, title, data }) {
   return (
     <SwipeStyles className={"my-5 " + classnames}>
+      <h2 className="font-weight-bold pl-2 pl-xl-0 header">{title}</h2>
       <ScrollCard
+        data={data}
         componentClass="card-container"
-        styles={{
-          backgroundImage: `url(
-            "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-          )`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
         effect="coverflow"
         centeredSlides={true}
         spaceBetween={5}

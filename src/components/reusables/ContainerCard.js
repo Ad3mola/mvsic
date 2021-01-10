@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) =>
       margin: "1.3em 0",
       boxShadow: "none",
       backgroundColor: "transparent",
+      height: "100%",
       [theme.breakpoints.up("lg")]: {
         backgroundColor: "white",
         padding: "1.2em",
