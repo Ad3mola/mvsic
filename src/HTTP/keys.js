@@ -1,6 +1,6 @@
 let keys = {};
 
-if (process.env.REACT_APP_NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   keys = {
     token: process.env.REACT_APP_TOKEN,
     clientID: process.env.REACT_APP_CLIENT_ID,
