@@ -20,6 +20,7 @@ export const login = () => {
 export const signOut = () => {
   Cookies.remove("spotifyAuthToken");
   window.location = "/";
+  console.log("go");
 };
 
 const getUser = async () => {

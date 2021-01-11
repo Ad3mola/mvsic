@@ -7,17 +7,18 @@ const GridContainer = styled(Grid)`
   .card-item-container {
     background-color: lightgray;
     border-radius: 8px;
-    height: 130px;
+    height: 100%;
+    min-height: 130px;
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0.5em;
     .main-container {
-      height: 25%;
+      height: 40%;
     }
     .text {
-      height: 70%;
+      height: 50%;
     }
     &:hover {
       opacity: 0.9;

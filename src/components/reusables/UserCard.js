@@ -90,7 +90,7 @@ function UserCard({ data, playlistTotal }) {
             <LongMenu
               options={["Sign Out"]}
               iconButtonClass="icon"
-              onClick={() => signOut()}
+              func={signOut}
             />
           </Grid>
         </Grid>

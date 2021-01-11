@@ -4,9 +4,9 @@ const HomepageStyle = styled.div`
   .library-list {
     li {
       padding: 1em 1em;
-      border-top: 1px solid #777;
+      border-top: 1px solid ${(props) => props.theme.libraryBorder};
       a {
-        color: black;
+        color: ${(props) => props.theme.black};
         display: inline-block;
         width: 100%;
         height: 100%;
@@ -20,7 +20,7 @@ const HomepageStyle = styled.div`
         font-weight: 600;
       }
       &:last-child {
-        border-bottom: 1px solid #777;
+        border-bottom: 1px solid ${(props) => props.theme.libraryBorder};
       }
     }
   }

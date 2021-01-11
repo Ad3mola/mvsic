@@ -47,7 +47,7 @@ const CardStyle = styled.div`
   }
 `;
 
-function NavCard({ title,publisher, data }) {
+function NavCard({ title, publisher, data }) {
   return (
     <CardStyle>
       <ContainerCard>
@@ -65,6 +65,7 @@ function NavCard({ title,publisher, data }) {
           componentClass="card-img-container"
           spaceBetween={5}
           type={publisher}
+          className="swipe"
           slidesPerView={2}
           direction="horizontal"
           breakpoints={{
