@@ -46,7 +46,7 @@ const GridContainer = styled(Grid)`
   }
 `;
 
-function ThumbnailCard({ data }) {
+function ThumbnailCard({ data, type }) {
   return (
     <GridContainer container spacing={2} className="px-2 pt-3">
       {data.length
@@ -56,6 +56,7 @@ function ThumbnailCard({ data }) {
                 classnames="card-item-container"
                 img={item.icons ? item.icons[0].url : item.images[0].url}
                 smallText={item.name}
+                link={`/home/${type}/${item.id}`}
               />
             </Grid>
           ))

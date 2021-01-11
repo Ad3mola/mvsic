@@ -141,3 +141,20 @@ export const getSearch = (q) => {
     }
   };
 };
+
+export const getPlaylistDetail = async (id) => {
+  try {
+    let response = await http.get(`playlists/${id}/tracks`);
+    return response.data.items;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getCategoryPlaylist = async (id) => {
+  try {
+    let response = await http.get(`browse/categories/${id}/playlists`);
+    return response.data.playlists.items;
+  } catch (error) {
+    console.log(error);
+  }
+};

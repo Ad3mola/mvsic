@@ -134,11 +134,14 @@ function Search() {
                         />
                       </div>
                       <div className="detail-text">
-                        <p className="m-0 font-weight-bold main-text">
-                          {item.name}
+                        <p className="m-0  main-text">
+                          <span className="font-weight-bold"> {item.name}</span>{" "}
+                          <small className="text-muted">
+                            - {item.artists[0].name}
+                          </small>
                         </p>
-                        <small className="font-weight-bold small-text">
-                          {item.artists[0].name}
+                        <small className="text-muted small-text">
+                          {item.album.album_type}
                         </small>
                       </div>
                     </div>

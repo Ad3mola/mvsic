@@ -32,7 +32,7 @@ function Browse() {
             <h5 className=" font-weight-bold header pl-2 pl-xl-0">
               Featured Playlists
             </h5>
-            <ThumbnailCard data={featuredPlaylists} />
+            <ThumbnailCard data={featuredPlaylists} type="playlist" />
           </ContainerCard>
         </Grid>
         <Grid item xs={12} lg={6}>
@@ -40,7 +40,7 @@ function Browse() {
             <h5 className=" font-weight-bold header pl-2 pl-xl-0">
               Top Categories
             </h5>
-            <ThumbnailCard data={categories} />
+            <ThumbnailCard data={categories} type="category" />
           </ContainerCard>
         </Grid>
       </Grid>

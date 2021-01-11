@@ -21,7 +21,7 @@ const CategoriesListStyle = styled(Grid)`
   }
 `;
 
-export const CategoriesList = ({ data }) => {
+export const CategoriesList = ({ data, type }) => {
   return (
     <>
       <CategoriesListStyle container className="mt-3 mx-auto">
@@ -38,15 +38,18 @@ export const CategoriesList = ({ data }) => {
                 classnames="card-img-container"
                 img={
                   item.images
-                    ? item.images[1].url
-                    : item.track.album.images[1].url
+                    ? item.images[0].url
+                    : item.track.album.images[0].url
                 }
                 title={item.name ? item.name : item.track.album.name}
                 smallText={
                   item.genres
                     ? item.genres[0]
-                    : item.track.album.artists[0].name
+                    : item.track
+                    ? item.track.album.artists[0].name
+                    : item.owner.display_name
                 }
+                link={type ? `/home/${type}/${item.id}` : "/"}
               />
             </Grid>
           ))

@@ -18,6 +18,13 @@ const SearchStyles = styled.div`
       }
     }
   }
+  @media (max-width: 576px) {
+    .detail-text {
+      p span {
+        font-size: 0.8rem;
+      }
+    }
+  }
 `;
 
 function SearchSong() {
@@ -59,7 +66,7 @@ function SearchSong() {
               {searchList.tracks.items.length ? (
                 <>
                   <h2>Tracks</h2>
-                  {searchList.tracks.items.slice(0, 5).map((item) => (
+                  {searchList.tracks.items.map((item) => (
                     <div
                       key={item.id}
                       className="my-3 d-flex align-items-center"
@@ -74,11 +81,14 @@ function SearchSong() {
                         />
                       </div>
                       <div className="w-75 detail-text">
-                        <p className="m-0 font-weight-bold main-text">
-                          {item.name}
+                        <p className="m-0  main-text">
+                          <span className="font-weight-bold"> {item.name}</span>{" "}
+                          <small className="text-muted">
+                            - {item.artists[0].name}
+                          </small>
                         </p>
-                        <small className="font-weight-bold small-text">
-                          {item.artists[0].name}
+                        <small className="text-muted small-text">
+                          {item.album.album_type}
                         </small>
                       </div>
                     </div>

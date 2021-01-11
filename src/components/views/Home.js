@@ -17,6 +17,8 @@ const Favorite = lazy(() => import("./Favorite"));
 const Artists = lazy(() => import("./Artists"));
 const Albums = lazy(() => import("./Albums"));
 const SearchSong = lazy(() => import("./SearchSong"));
+const CategoryDetails = lazy(() => import("./CategoryDetails"));
+const PlaylistDetails = lazy(() => import("./PlaylistDetails"));
 
 function Home({ match, history }) {
   const dispatch = useDispatch();
@@ -44,6 +46,14 @@ function Home({ match, history }) {
             <Route path={`${match.path}/favorite`} component={Favorite} />
             <Route path={`${match.path}/artists`} component={Artists} />
             <Route path={`${match.path}/albums`} component={Albums} />
+            <Route
+              path={`${match.path}/category/:id`}
+              component={CategoryDetails}
+            />
+            <Route
+              path={`${match.path}/playlist/:id`}
+              component={PlaylistDetails}
+            />
 
             <Redirect to="/home" />
           </Switch>

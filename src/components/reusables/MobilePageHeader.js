@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import LongMenu from "./LongMenu";
+import { signOut } from "../../store/actions/authentication";
 
 const HeaderStyle = styled.div`
   padding: 0.2em;
@@ -17,7 +18,7 @@ const HeaderStyle = styled.div`
 function MobilePageHeader() {
   return (
     <HeaderStyle className="d-xl-none fixed-top">
-      <LongMenu options={["Sign Out"]} iconButtonClass="icon" />
+      <LongMenu options={["Sign Out"]} iconButtonClass="icon" func={signOut} />
     </HeaderStyle>
   );
 }
