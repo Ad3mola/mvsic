@@ -4,7 +4,7 @@ import { useGlobalState } from "../../store/reducers/rootReducer";
 import NavCard from "../reusables/NavCard";
 
 function Favorite() {
-  const { topTracks } = useGlobalState();
+  const { topTracks, loading } = useGlobalState();
   return (
     <div className="my-5 pb-5 px-0 px-xl-5 mt-xl-2 overflow-hidden container">
       {topTracks.length ? (
@@ -18,6 +18,7 @@ function Favorite() {
           </Link>
         </div>
       )}
+      {loading ? <p className="container-fluid">Loading...</p> : null}
 
       {/* <Grid container spacing={3}>
         <Grid item xs={12} lg={6}>

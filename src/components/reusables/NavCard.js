@@ -47,7 +47,7 @@ const CardStyle = styled.div`
   }
 `;
 
-function NavCard({ title, publisher, data }) {
+function NavCard({ title, publisher, data, loading }) {
   return (
     <CardStyle>
       <ContainerCard>
@@ -61,6 +61,7 @@ function NavCard({ title, publisher, data }) {
           </div>
         </div>
         <ScrollCard
+          loading={loading}
           data={data}
           componentClass="card-img-container"
           spaceBetween={5}

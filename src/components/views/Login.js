@@ -17,7 +17,7 @@ function Login(props) {
           <span> mvsic</span> for everyone.
         </h1>
         <SpotifyAuth
-          redirectUri="https://mvsic.netlify.app/"
+          redirectUri="http://localhost:3000/"
           clientID={keys.clientID}
           scopes={[
             Scopes.userReadPrivate,

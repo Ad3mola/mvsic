@@ -12,10 +12,10 @@ import ContainerCard from "../reusables/ContainerCard";
 import SwipeCard from "../reusables/SwipeCard";
 
 function Library() {
-  const { newReleases, savedAlbums, topSongs } = useGlobalState();
+  const { newReleases, savedAlbums, topSongs, loading } = useGlobalState();
   return (
-    <HomepageStyle className="my-5 pb-5 px-0 px-xl-5 mt-xl-2 overflow-hidden container-xl">
-      <h1 className="container font-weight-bold d-xl-none mt-4 header">
+    <HomepageStyle className="my-5 pb-5 px-0 px-xl-5 mt-xl-2 overflow-xl-hidden container-xl">
+      <h1 className="container font-weight-bold d-xl-none mt-5 header lib-header">
         Library
       </h1>
       <div className="library">
@@ -48,16 +48,17 @@ function Library() {
         classnames="d-none d-xl-block"
         title="New Releases"
         data={newReleases}
+        loading={loading}
       />
       <ContainerCard className="container category">
         <h4 className=" font-weight-bold header pl-2 pl-xl-0">
           Recently Added
         </h4>
-        <CategoriesList data={savedAlbums} />
+        <CategoriesList data={savedAlbums} loading={loading} />
       </ContainerCard>
       <ContainerCard className="container category">
         <h4 className=" font-weight-bold header pl-2 pl-xl-0">Top Tracks</h4>
-        <CategoriesList data={topSongs} />
+        <CategoriesList data={topSongs} loading={loading} />
       </ContainerCard>
     </HomepageStyle>
   );

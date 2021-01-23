@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-function UserCard({ data, playlistTotal }) {
+function UserCard({ data, playlistTotal, loading }) {
   const classes = useStyles();
   return (
     <UserCardStyle
@@ -95,6 +95,7 @@ function UserCard({ data, playlistTotal }) {
           </Grid>
         </Grid>
       )}
+      {loading ? <p className="container-fluid">Loading...</p> : null}
     </UserCardStyle>
   );
 }

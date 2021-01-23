@@ -46,9 +46,9 @@ select:focus {
   }
 .main-page{
   width: 100%;
-  min-height:100vh;
+  /* min-height:100vh; */
   background-color:#f5f5f5;
-  overflow-x:hidden;
+  /* overflow-x:hidden; */
   position:relative;
 }
 .center{
@@ -76,6 +76,12 @@ select:focus {
     box-shadow: 0;
   }
 }
+@media (min-width: 1024.98px) {
+  .main-page{
+  min-height:100vh;
+  overflow-x:hidden;
+}
+  }
 @media (max-width: 768.98px) {
     .header {
       font-size: 1.2rem;

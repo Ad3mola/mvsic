@@ -19,11 +19,13 @@ const ScrollCardStyle = styled.div`
   width: 100%;
 `;
 
-function ScrollCard({ styles, componentClass, data, type, ...props }) {
+function ScrollCard({ styles, componentClass, data, type, loading, ...props }) {
   return (
     <>
       <ScrollCardStyle>
-        {data.length ? (
+        {loading ? (
+          <p className="container-fluid">Loading...</p>
+        ) : data.length ? (
           <Swiper {...props} mousewheel={true}>
             {data.map((album) => (
               <SwiperSlide

@@ -56,12 +56,13 @@ const SwipeStyles = styled.section`
   }
 `;
 
-function SwipeCard({ classnames, title, data }) {
+function SwipeCard({ classnames, title, data, loading }) {
   return (
     <SwipeStyles className={"my-5 " + classnames}>
       <h2 className="font-weight-bold pl-2 pl-xl-0 pb-2 header">{title}</h2>
       <ScrollCard
         data={data}
+        loading={loading}
         componentClass="card-container"
         effect="coverflow"
         centeredSlides={true}

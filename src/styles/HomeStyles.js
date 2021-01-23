@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 const HomepageStyle = styled.div`
+  .lib-header {
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 1050;
+    top: 20px;
+    margin-top: 3.6em !important;
+  }
   .library-list {
     li {
       padding: 1em 1em;

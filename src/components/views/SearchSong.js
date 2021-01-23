@@ -28,7 +28,7 @@ const SearchStyles = styled.div`
 `;
 
 function SearchSong() {
-  const { searchList } = useGlobalState();
+  const { searchList, loading } = useGlobalState();
   return (
     <SearchStyles className=" pb-5 px-xl-5 mt-xl-2 d-xl-none overflow-hidden container">
       <Search />
@@ -98,6 +98,7 @@ function SearchSong() {
             </div>
           </div>
         ) : null}
+        {loading ? <p className="container-fluid">Loading...</p> : null}
       </div>
     </SearchStyles>
   );

@@ -1,9 +1,9 @@
 import { Grid } from "@material-ui/core";
 import { lazy, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { batch, useDispatch } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { login } from "../../store/actions/authentication";
-import { getSaved } from "../../store/actions/songs";
+import { getSaved, load } from "../../store/actions/songs";
 import BottomNav from "../reusables/BottomNav";
 import DesktopNav from "../reusables/DesktopNav";
 import MobilePageHeader from "../reusables/MobilePageHeader";
@@ -24,7 +24,10 @@ function Home({ match, history }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(login());
-    dispatch(getSaved());
+    batch(() => {
+      dispatch(load());
+      dispatch(getSaved());
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

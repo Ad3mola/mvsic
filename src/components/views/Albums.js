@@ -1,18 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getAlbums } from "../../store/actions/songs";
+import React from "react";
 import { useGlobalState } from "../../store/reducers/rootReducer";
 import SwipeCard from "../reusables/SwipeCard";
 
 function Albums() {
-  const { albums } = useGlobalState();
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAlbums());
-  }, []);
+  const { albums, loading } = useGlobalState();
   return (
     <div className="my-5 pb-5 px-0 px-xl-5 mt-xl-2 overflow-hidden container">
-      <SwipeCard data={albums} />
+      <SwipeCard data={albums} loading={loading} />
       {/* <Grid container spacing={3}>
         <Grid item xs={12} lg={6}>
           <ContainerCard>

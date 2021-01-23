@@ -12,8 +12,10 @@ export const login = () => {
           payload: values[1].data.albums.items,
         });
         dispatch({ type: "USER_PLAYLISTS", payload: values[2].data });
+        dispatch({ type: "LOADING", payload: false });
       }
     );
+    // .then(() => stopLoading());
   };
 };
 

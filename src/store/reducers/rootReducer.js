@@ -15,6 +15,7 @@ let initialState = {
   artists: [],
   albums: [],
   searchList: null,
+  loading: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -88,6 +89,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         searchList: action.payload,
+      };
+    case "LOADING":
+      return {
+        ...state,
+        loading: action.payload,
       };
     default:
       return state;

@@ -46,7 +46,7 @@ const GridContainer = styled(Grid)`
   }
 `;
 
-function ThumbnailCard({ data, type }) {
+function ThumbnailCard({ data, type, loading }) {
   return (
     <GridContainer container spacing={2} className="px-2 pt-3">
       {data.length
@@ -61,6 +61,7 @@ function ThumbnailCard({ data, type }) {
             </Grid>
           ))
         : null}
+      {loading ? <p className="container-fluid">Loading...</p> : null}
     </GridContainer>
   );
 }

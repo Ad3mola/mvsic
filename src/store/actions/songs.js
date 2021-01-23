@@ -7,69 +7,45 @@ export const getSaved = () => {
       topTracks(),
       getTopLists(),
       getSavedAlbums(),
+      getCategories(),
+      getFeaturedPlaylists(),
+      getShows(),
+      getRecentlyPlayed(),
+      artists(),
+      albums(),
     ]).then((values) => {
       dispatch({ type: "TOP_ARTISTS", payload: values[0].data.items });
       dispatch({ type: "TOP_TRACKS", payload: values[1].data.items });
       dispatch({ type: "TOP_SONGS", payload: values[2].data.tracks.items });
       dispatch({ type: "SAVED_ALBUMS", payload: values[3].data.items });
-    });
-  };
-};
-export const getBrowse = () => {
-  return (dispatch) => {
-    Promise.all([getCategories(), getFeaturedPlaylists()]).then((values) => {
       dispatch({
         type: "CATEGORIES",
-        payload: values[0].data.categories.items,
+        payload: values[4].data.categories.items,
       });
       dispatch({
         type: "FEATURED_PLAYLISTS",
-        payload: values[1].data.playlists.items,
+        payload: values[5].data.playlists.items,
       });
-    });
-  };
-};
-export const getRadio = () => {
-  return (dispatch) => {
-    Promise.all([getShows()]).then((values) => {
       dispatch({
         type: "SHOWS",
-        payload: values[0].data.shows,
+        payload: values[6].data.shows,
       });
-    });
-  };
-};
-export const getRecent = () => {
-  return (dispatch) => {
-    Promise.all([getRecentlyPlayed()]).then((values) => {
       dispatch({
         type: "RECENTLY_PLAYED",
-        payload: values[0].data.items,
+        payload: values[7].data.items,
       });
-    });
-  };
-};
-export const getArtists = () => {
-  return (dispatch) => {
-    Promise.all([artists()]).then((values) => {
       dispatch({
         type: "ARTISTS",
-        payload: values[0].data.artists,
+        payload: values[8].data.artists,
       });
-    });
-  };
-};
-export const getAlbums = () => {
-  return (dispatch) => {
-    Promise.all([albums()]).then((values) => {
       dispatch({
         type: "ALBUMS",
-        payload: values[0].data.albums,
+        payload: values[9].data.albums,
       });
+      dispatch({ type: "LOADING", payload: false });
     });
   };
 };
-
 export const getNewReleases = async () => {
   let response = await http.get("browse/new-releases?offset=0&limit=10");
   return response;
@@ -135,6 +111,7 @@ export const getSearch = (q) => {
         type: "SEARCH_LIST",
         payload: response.data,
       });
+      dispatch({ type: "LOADING", payload: false });
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -157,4 +134,8 @@ export const getCategoryPlaylist = async (id) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const load = () => {
+  return (dispatch) => dispatch({ type: "LOADING", payload: true });
 };

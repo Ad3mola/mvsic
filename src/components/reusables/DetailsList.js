@@ -13,7 +13,7 @@ const ListStyle = styled.section`
   }
 `;
 
-function DetailsList({ data }) {
+function DetailsList({ data, loading }) {
   return (
     <ListStyle className="container-fluid">
       {data.length
@@ -49,6 +49,7 @@ function DetailsList({ data }) {
             </div>
           ))
         : null}
+      {loading ? <p className="container-fluid">Loading...</p> : null}
     </ListStyle>
   );
 }

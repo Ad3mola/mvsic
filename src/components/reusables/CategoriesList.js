@@ -21,11 +21,13 @@ const CategoriesListStyle = styled(Grid)`
   }
 `;
 
-export const CategoriesList = ({ data, type }) => {
+export const CategoriesList = ({ data, type, loading }) => {
   return (
     <>
       <CategoriesListStyle container className="mt-3 mx-auto">
-        {data.length ? (
+        {loading ? (
+          <p className="container-fluid">Loading...</p>
+        ) : data.length ? (
           data.map((item) => (
             <Grid
               key={item.id ? item.id : item.track.album.id}
