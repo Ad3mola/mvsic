@@ -11,7 +11,7 @@ function PlaylistDetails(props) {
     getPlaylistDetail(id).then((data) => setTracks(data));
   }, []);
   return (
-    <div className="my-5 pb-5 px-0 px-xl-5 mt-xl-2 overflow-hidden container">
+    <div className="my-5 pb-5 px-0 px-xl-5 mt-xl-2 overflow-hidden container height">
       <ContainerCard className="container category">
         <h4 className=" font-weight-bold header pl-2 pl-xl-0">Tracks</h4>
         {tracks.length ? (
