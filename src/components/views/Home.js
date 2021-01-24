@@ -23,9 +23,9 @@ const PlaylistDetails = lazy(() => import("./PlaylistDetails"));
 function Home({ match, history }) {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(login());
     batch(() => {
       dispatch(load());
+      dispatch(login());
       dispatch(getSaved());
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

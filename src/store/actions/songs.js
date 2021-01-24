@@ -1,4 +1,5 @@
 import http from "../../HTTP/config";
+import axios from "axios";
 
 export const getSaved = () => {
   return (dispatch) => {
@@ -13,37 +14,46 @@ export const getSaved = () => {
       getRecentlyPlayed(),
       artists(),
       albums(),
-    ]).then((values) => {
-      dispatch({ type: "TOP_ARTISTS", payload: values[0].data.items });
-      dispatch({ type: "TOP_TRACKS", payload: values[1].data.items });
-      dispatch({ type: "TOP_SONGS", payload: values[2].data.tracks.items });
-      dispatch({ type: "SAVED_ALBUMS", payload: values[3].data.items });
-      dispatch({
-        type: "CATEGORIES",
-        payload: values[4].data.categories.items,
-      });
-      dispatch({
-        type: "FEATURED_PLAYLISTS",
-        payload: values[5].data.playlists.items,
-      });
-      dispatch({
-        type: "SHOWS",
-        payload: values[6].data.shows,
-      });
-      dispatch({
-        type: "RECENTLY_PLAYED",
-        payload: values[7].data.items,
-      });
-      dispatch({
-        type: "ARTISTS",
-        payload: values[8].data.artists,
-      });
-      dispatch({
-        type: "ALBUMS",
-        payload: values[9].data.albums,
-      });
-      dispatch({ type: "LOADING", payload: false });
-    });
+      getNewReleases(),
+      getUserPlaylists(),
+    ])
+      .then((values) => {
+        dispatch({ type: "TOP_ARTISTS", payload: values[0].data.items });
+        dispatch({ type: "TOP_TRACKS", payload: values[1].data.items });
+        dispatch({ type: "TOP_SONGS", payload: values[2].data.tracks.items });
+        dispatch({ type: "SAVED_ALBUMS", payload: values[3].data.items });
+        dispatch({
+          type: "CATEGORIES",
+          payload: values[4].data.categories.items,
+        });
+        dispatch({
+          type: "FEATURED_PLAYLISTS",
+          payload: values[5].data.playlists.items,
+        });
+        dispatch({
+          type: "SHOWS",
+          payload: values[6].data.shows,
+        });
+        dispatch({
+          type: "RECENTLY_PLAYED",
+          payload: values[7].data.items,
+        });
+        dispatch({
+          type: "ARTISTS",
+          payload: values[8].data.artists,
+        });
+        dispatch({
+          type: "ALBUMS",
+          payload: values[9].data.albums,
+        });
+        dispatch({
+          type: "NEW_RELEASES",
+          payload: values[10].data.albums.items,
+        });
+        dispatch({ type: "USER_PLAYLISTS", payload: values[11].data });
+        // dispatch({ type: "LOADING", payload: false });
+      })
+      .then(() => dispatch({ type: "LOADING", payload: false }));
   };
 };
 export const getNewReleases = async () => {
@@ -100,19 +110,25 @@ export const albums = async () => {
   );
   return response;
 };
-
+let cancelToken;
 export const getSearch = (q) => {
   return async (dispatch) => {
+    if (typeof cancelToken != typeof undefined) {
+      cancelToken.cancel("Operation canceled due to new request.");
+    }
+
+    //Save the cancel token for the current request
+    cancelToken = axios.CancelToken.source();
     try {
       let response = await http.get(
-        `search?q=${q}&type=track%2Cartist&offset=5`
+        `search?q=${q}&type=track%2Cartist&offset=5`,
+        { cancelToken: cancelToken.token }
       );
       dispatch({
         type: "SEARCH_LIST",
         payload: response.data,
       });
       dispatch({ type: "LOADING", payload: false });
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

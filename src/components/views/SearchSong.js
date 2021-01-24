@@ -5,12 +5,14 @@ import { useGlobalState } from "../../store/reducers/rootReducer";
 import Search from "../reusables/Search";
 
 const SearchStyles = styled.div`
+  min-height: 82vh;
   margin-top: 4em;
   .search-input {
     background-color: rgba(229, 229, 229, 0.6) !important;
   }
   .search-body {
     margin-top: 1.2em;
+
     .img-container {
       width: 80px;
       img {

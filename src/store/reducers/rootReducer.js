@@ -16,6 +16,8 @@ let initialState = {
   albums: [],
   searchList: null,
   loading: true,
+  userLoading: true,
+  offline: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -94,6 +96,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: action.payload,
+      };
+    case "USER_LOADING":
+      return {
+        ...state,
+        userLoading: action.payload,
+      };
+    case "OFFLINE":
+      return {
+        ...state,
+        offline: action.payload,
       };
     default:
       return state;

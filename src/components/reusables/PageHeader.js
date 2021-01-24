@@ -5,7 +5,7 @@ import Search from "./Search";
 import UserCard from "./UserCard";
 
 function PageHeader() {
-  const { user, userPlaylists, loading } = useGlobalState();
+  const { user, userPlaylists, userLoading } = useGlobalState();
   return (
     <div className="mt-4 d-none d-xl-block">
       <Grid container justify="space-around" alignItems="center">
@@ -16,7 +16,7 @@ function PageHeader() {
           <UserCard
             data={user}
             playlistTotal={userPlaylists.total}
-            loading={loading}
+            loading={userLoading}
           />
         </Grid>
       </Grid>

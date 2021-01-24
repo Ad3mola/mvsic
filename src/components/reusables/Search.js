@@ -21,9 +21,10 @@ const SearchStyle = styled.form`
   .search-body {
     position: absolute;
     top: 40px;
+    overflow-y: scroll;
     z-index: 1000;
     width: 100%;
-    height: 100%;
+    height: 500px;
     margin-top: 1.2em;
     .img-container {
       width: 80px;
@@ -61,6 +62,7 @@ function Search() {
   } = useComponentVisible(true);
   const { searchList } = useGlobalState();
   const dispatch = useDispatch();
+
   const search = (e) => {
     e.preventDefault();
     if (searchQuery !== "") {
@@ -78,6 +80,7 @@ function Search() {
           aria-describedby="searchHelp"
           onChange={(e) => {
             setSearchQuery(e.target.value);
+            search(e);
           }}
           placeholder="Search for songs, artists etc..."
           value={searchQuery}

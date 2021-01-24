@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
 
 const baseURL = "https://api.spotify.com/v1/";
 export const token = Cookies.get("spotifyAuthToken");
@@ -48,10 +49,25 @@ http.interceptors.response.use(
       Cookies.remove("spotifyAuthToken");
       window.location = "/";
     } else {
+      if (error.request) {
+        Cookies.remove("spotifyAuthToken");
+        window.location = "/";
+      }
       return Promise.reject(error);
     }
   }
 );
+axios.interceptors.request.use(
+  function (config) {
+    // Do something before request is sent
+    return config;
+  },
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
+
 // http.interceptors.request.use(
 //   function (request) {
 //     return request;
