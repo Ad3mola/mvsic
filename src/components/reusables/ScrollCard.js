@@ -29,7 +29,13 @@ function ScrollCard({ styles, componentClass, data, type, loading, ...props }) {
           <Swiper {...props} mousewheel={true}>
             {data.map((album) => (
               <SwiperSlide
-                key={album.id ? album.id : album.track.album.id}
+                key={
+                  album.id
+                    ? album.id
+                    : album.track
+                    ? album.track.album.id
+                    : album.album.id
+                }
                 style={{
                   background: `linear-gradient(  90deg,
                     rgba(2, 0, 36, 0.4) 0%,
@@ -38,26 +44,44 @@ function ScrollCard({ styles, componentClass, data, type, loading, ...props }) {
                   ${
                     album.images
                       ? album.images[1].url
-                      : album.track.album.images[1].url
+                      : album.track
+                      ? album.track.album.images[1].url
+                      : album.album.images[1].url
                   }
                 )`,
                 }}
               >
                 <CardItem
                   classnames={componentClass}
-                  link={album.id ? album.id : album.track.album.id}
-                  title={album.name ? album.name : album.track.album.name}
+                  link={
+                    album.id
+                      ? album.id
+                      : album.track
+                      ? album.track.album.id
+                      : album.album.id
+                  }
+                  title={
+                    album.name
+                      ? album.name
+                      : album.track
+                      ? album.track.album.name
+                      : album.album.name
+                  }
                   smallText={
                     album.artists
                       ? album.artists[0].name
                       : album.track
                       ? album.track.album.artists[0].name
+                      : album.album
+                      ? album.album.artists[0].name
                       : album.publisher
                   }
                   img={
                     album.images
                       ? album.images[1].url
-                      : album.track.album.images[1].url
+                      : album.track
+                      ? album.track.album.images[1].url
+                      : album.album.images[1].url
                   }
                 />
               </SwiperSlide>

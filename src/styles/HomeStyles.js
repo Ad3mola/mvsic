@@ -31,6 +31,11 @@ const HomepageStyle = styled.div`
       }
     }
   }
+  .swipe {
+    .swiper-slide {
+      background-image: none !important;
+    }
+  }
 `;
 
 export default HomepageStyle;

@@ -30,7 +30,13 @@ export const CategoriesList = ({ data, type, loading }) => {
         ) : data.length ? (
           data.map((item) => (
             <Grid
-              key={item.id ? item.id : item.track.album.id}
+              key={
+                item.id
+                  ? item.id
+                  : item.track
+                  ? item.track.album.id
+                  : item.album.id
+              }
               item
               xs={6}
               md={3}
@@ -41,14 +47,24 @@ export const CategoriesList = ({ data, type, loading }) => {
                 img={
                   item.images
                     ? item.images[0].url
-                    : item.track.album.images[0].url
+                    : item.track
+                    ? item.track.album.images[0].url
+                    : item.album.images[0].url
                 }
-                title={item.name ? item.name : item.track.album.name}
+                title={
+                  item.name
+                    ? item.name
+                    : item.track
+                    ? item.track.album.name
+                    : item.album.name
+                }
                 smallText={
                   item.genres
                     ? item.genres[0]
                     : item.track
                     ? item.track.album.artists[0].name
+                    : item.album
+                    ? item.album.artists[0].name
                     : item.owner.display_name
                 }
                 link={type ? `/home/${type}/${item.id}` : "/"}

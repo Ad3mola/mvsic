@@ -9,6 +9,7 @@ import { useGlobalState } from "../../store/reducers/rootReducer";
 import HomepageStyle from "../../styles/HomeStyles";
 import CategoriesList from "../reusables/CategoriesList";
 import ContainerCard from "../reusables/ContainerCard";
+import NavCard from "../reusables/NavCard";
 import SwipeCard from "../reusables/SwipeCard";
 
 function Library() {
@@ -50,12 +51,7 @@ function Library() {
         data={newReleases}
         loading={loading}
       />
-      <ContainerCard className="container category">
-        <h4 className=" font-weight-bold header pl-2 pl-xl-0">
-          Recently Added
-        </h4>
-        <CategoriesList data={savedAlbums} loading={loading} />
-      </ContainerCard>
+      <NavCard title="Recently Added Albums" data={savedAlbums} />
       <ContainerCard className="container category">
         <h4 className=" font-weight-bold header pl-2 pl-xl-0">Top Tracks</h4>
         <CategoriesList data={topSongs} loading={loading} />

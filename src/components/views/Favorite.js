@@ -1,14 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGlobalState } from "../../store/reducers/rootReducer";
+import BrowseStyle from "../../styles/BrowseStyle";
+import CategoriesList from "../reusables/CategoriesList";
+import ContainerCard from "../reusables/ContainerCard";
 import NavCard from "../reusables/NavCard";
 
 function Favorite() {
   const { topTracks, loading } = useGlobalState();
   return (
-    <div className="my-5 pb-5 px-0 px-xl-5 mt-xl-2 overflow-hidden container">
+    <BrowseStyle className="my-5 pb-5 px-0 px-xl-5 mt-xl-2 overflow-hidden container">
       {topTracks.length ? (
-        <NavCard title="Favorite songs" data={topTracks} />
+        <ContainerCard className="container category">
+          <h4 className=" font-weight-bold header pl-2 pl-xl-0">
+            Favorite songs
+          </h4>
+          <CategoriesList data={topTracks} loading={loading} />
+        </ContainerCard>
       ) : (
         <div className="container-fluid text-center mt-5">
           <p>You have no favorite songs at the moment</p>
@@ -38,7 +46,7 @@ function Favorite() {
           </ContainerCard>
         </Grid>
       </Grid> */}
-    </div>
+    </BrowseStyle>
   );
 }
 
