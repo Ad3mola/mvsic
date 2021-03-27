@@ -86,6 +86,9 @@ select:focus {
     .header {
       font-size: 1.2rem;
     }
+    .height{
+      min-height: 100vh;
+     }
   }
 
 `;
