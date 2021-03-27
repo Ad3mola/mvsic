@@ -32,6 +32,7 @@ function Library() {
             <Link to="/home/favorite">
               <MusicNote fontSize="small" /> <span>Songs</span>
             </Link>
+          </li>
           <li>
             <Link to="/home/artists">
               <MicNone fontSize="small" /> <span>Artists</span>
@@ -41,7 +42,6 @@ function Library() {
             <Link to="/home/albums">
               <LibraryMusic fontSize="small" /> <span>Albums</span>
             </Link>
-          </li>
           </li>
         </ul>
       </div>
